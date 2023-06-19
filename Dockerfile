@@ -10,8 +10,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install --global yarn
-
 RUN yarn
 
 RUN yarn run build
