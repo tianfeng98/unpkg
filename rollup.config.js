@@ -3,7 +3,7 @@ const execSync = require('child_process').execSync;
 
 const babel = require('rollup-plugin-babel');
 const commonjs = require('rollup-plugin-commonjs');
-const compiler = require('@ampproject/rollup-plugin-closure-compiler');
+// const compiler = require('@ampproject/rollup-plugin-closure-compiler');
 const json = require('rollup-plugin-json');
 const replace = require('rollup-plugin-replace');
 const resolve = require('rollup-plugin-node-resolve');
@@ -13,8 +13,8 @@ const entryManifest = require('./plugins/entryManifest');
 const pkg = require('./package.json');
 
 const buildId =
-  process.env.BUILD_ID ||
-  execSync('git rev-parse --short HEAD').toString().trim();
+  process.env.BUILD_ID || 'tianfeng98'
+  // execSync('git rev-parse --short HEAD').toString().trim();
 
 const manifest = entryManifest();
 
@@ -61,7 +61,7 @@ const client = ['browse', 'main'].map(entryName => {
         limit: 5 * 1024,
         publicPath: '/_client/'
       }),
-      compiler()
+      // compiler()
     ]
   };
 });
