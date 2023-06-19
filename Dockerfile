@@ -10,7 +10,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN yarn
+RUN yarn --registry=https://registry.npmmirror.com/
 
 RUN yarn run build
 
