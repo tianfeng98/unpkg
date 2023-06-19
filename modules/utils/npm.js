@@ -178,7 +178,7 @@ export async function getPackage(packageName, version, log) {
   const options = {
     agent: agent,
     hostname: hostname,
-    path: pathname
+    path: pathname,
     port
   };
 
