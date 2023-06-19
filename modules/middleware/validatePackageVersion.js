@@ -3,6 +3,7 @@ import semver from 'semver';
 import asyncHandler from '../utils/asyncHandler.js';
 import createPackageURL from '../utils/createPackageURL.js';
 import { getPackageConfig, getVersionsAndTags } from '../utils/npm.js';
+import withUrlPrefix from '../utils/withUrlPrefix';
 
 function semverRedirect(req, res, newVersion) {
   res
@@ -12,8 +13,8 @@ function semverRedirect(req, res, newVersion) {
     })
     .redirect(
       302,
-      req.baseUrl +
-        createPackageURL(req.packageName, newVersion, req.filename, req.query)
+      withUrlPrefix(req.baseUrl +
+        createPackageURL(req.packageName, newVersion, req.filename, req.query, true))
     );
 }
 

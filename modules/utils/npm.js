@@ -6,7 +6,7 @@ import bufferStream from './bufferStream.js';
 import request from './request';
 
 const npmRegistryURL =
-  process.env.NPM_REGISTRY_URL || 'https://registry.npmjs.org';
+  (process.env.NPM_REGISTRY_URL || 'https://registry.npmjs.org').trim();
 
 const agent = new request.Agent({
   keepAlive: true
