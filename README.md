@@ -1,3 +1,35 @@
+# Fork from UNPKG
+
+## Docker compose
+
+```yaml
+version: '3.9'
+services:
+  unpkg:
+    image: linktodream/unpkg
+    environment:
+      - NPM_REGISTRY_URL=<Your npm registry server>
+      - URL_PREFIX=<Your url prefix>
+```
+
+国内镜像
+
+```yaml
+version: '3.9'
+services:
+  unpkg:
+    image: registry.cn-hangzhou.aliyuncs.com/tf98_public/unpkg
+    environment:
+      - NPM_REGISTRY_URL=<Your npm registry server>
+      - URL_PREFIX=<Your url prefix>
+```
+
+## New features
+
+### URL Prefix
+
+After going through the nginx agent, you may need a prefix path to properly access your unpkg service. Set the environment variable `URL_PREFIX` to add the prefix to the resource path.
+
 # UNPKG &middot; [![Travis][build-badge]][build]
 
 [build-badge]: https://img.shields.io/travis/mjackson/unpkg/master.svg?style=flat-square

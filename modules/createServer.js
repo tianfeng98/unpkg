@@ -20,6 +20,7 @@ import validateFilename from './middleware/validateFilename.js';
 import validatePackagePathname from './middleware/validatePackagePathname.js';
 import validatePackageName from './middleware/validatePackageName.js';
 import validatePackageVersion from './middleware/validatePackageVersion.js';
+import withUrlPrefix from './utils/withUrlPrefix'
 
 function createApp(callback) {
   const app = express();
@@ -133,7 +134,7 @@ export default function createServer() {
 
     // Send old */ requests to the new /browse UI.
     app.get('*/', (req, res) => {
-      res.redirect(302, '/browse' + req.url);
+      res.redirect(302, withUrlPrefix('/browse' + req.url));
     });
 
     app.get(
